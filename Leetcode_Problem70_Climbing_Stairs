@@ -1,0 +1,23 @@
+int climbStairs(int n){
+    int *stairs_array = calloc(n + 2, sizeof(int));
+    stairs_array[0] = 1;
+    stairs_array[1] = 2;
+    for (int i = 2; i < n; i++)
+        stairs_array[i] = stairs_array[i - 1] + stairs_array[i - 2];
+    return stairs_array[n-1];
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int climbStairs(int n){
+    if(n == 1)
+        return 1;
+    int a1 = 1 , a2 = 1 , sum = 2;
+    for(int i = 2 ; i < n ; i++)
+    {
+        a1 = a2;
+        a2 = sum;
+        sum = a1 + a2;
+    }
+    return sum;
+}
